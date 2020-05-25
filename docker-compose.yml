@@ -12,17 +12,29 @@ networks:
       name: reaction.localhost
 
 services:
-  api:
+  artifacts-api:
     image: reactioncommerce/reaction:3.7.1
     depends_on:
       - mongo
     env_file:
-      - ./.env
+      - ./.artifacts.env
     networks:
       default:
       reaction:
     ports:
       - "3000:3000"
+      
+  templates-api:
+    image: reactioncommerce/reaction:3.7.1
+    depends_on:
+      - mongo
+    env_file:
+      - ./.templates.env
+    networks:
+      default:
+      reaction:
+    ports:
+      - "3001:3000"
 
   mongo:
     image: mongo:4.2.0
