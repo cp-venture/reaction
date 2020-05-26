@@ -16,8 +16,7 @@ services:
     image: reactioncommerce/reaction:3.7.1
     depends_on:
       - mongo
-    env_file:
-      - ./.artifacts.env
+    env_file: "./.denv/artifacts.env"
     networks:
       default:
       reaction:
@@ -28,8 +27,7 @@ services:
     image: reactioncommerce/reaction:3.7.1
     depends_on:
       - mongo
-    env_file:
-      - ./.templates.env
+    env_file: "./.denv/templates.env"
     networks:
       default:
       reaction:
